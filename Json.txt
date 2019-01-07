@@ -1,0 +1,352 @@
+-----------------------------------com.example.Address.java-----------------------------------
+
+package com.example;
+
+import java.util.HashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"street",
+"town",
+"post_code"
+})
+public class Address {
+
+@JsonProperty("street")
+private String street;
+@JsonProperty("town")
+private String town;
+@JsonProperty("post_code")
+private String postCode;
+@JsonIgnore
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+@JsonProperty("street")
+public String getStreet() {
+return street;
+}
+
+@JsonProperty("street")
+public void setStreet(String street) {
+this.street = street;
+}
+
+@JsonProperty("town")
+public String getTown() {
+return town;
+}
+
+@JsonProperty("town")
+public void setTown(String town) {
+this.town = town;
+}
+
+@JsonProperty("post_code")
+public String getPostCode() {
+return postCode;
+}
+
+@JsonProperty("post_code")
+public void setPostCode(String postCode) {
+this.postCode = postCode;
+}
+
+@JsonAnyGetter
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+@JsonAnySetter
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
+
+}
+-----------------------------------com.example.CareerSummary.java-----------------------------------
+
+package com.example;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"from",
+"to",
+"outline",
+"key_responsibilities"
+})
+public class CareerSummary {
+
+@JsonProperty("from")
+private String from;
+@JsonProperty("to")
+private String to;
+@JsonProperty("outline")
+private String outline;
+@JsonProperty("key_responsibilities")
+private List<String> keyResponsibilities = null;
+@JsonIgnore
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+@JsonProperty("from")
+public String getFrom() {
+return from;
+}
+
+@JsonProperty("from")
+public void setFrom(String from) {
+this.from = from;
+}
+
+@JsonProperty("to")
+public String getTo() {
+return to;
+}
+
+@JsonProperty("to")
+public void setTo(String to) {
+this.to = to;
+}
+
+@JsonProperty("outline")
+public String getOutline() {
+return outline;
+}
+
+@JsonProperty("outline")
+public void setOutline(String outline) {
+this.outline = outline;
+}
+
+@JsonProperty("key_responsibilities")
+public List<String> getKeyResponsibilities() {
+return keyResponsibilities;
+}
+
+@JsonProperty("key_responsibilities")
+public void setKeyResponsibilities(List<String> keyResponsibilities) {
+this.keyResponsibilities = keyResponsibilities;
+}
+
+@JsonAnyGetter
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+@JsonAnySetter
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
+
+}
+-----------------------------------com.example.Example.java-----------------------------------
+
+package com.example;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"sampleCvs"
+})
+public class Example {
+
+@JsonProperty("sampleCvs")
+private List<SampleCv> sampleCvs = null;
+@JsonIgnore
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+@JsonProperty("sampleCvs")
+public List<SampleCv> getSampleCvs() {
+return sampleCvs;
+}
+
+@JsonProperty("sampleCvs")
+public void setSampleCvs(List<SampleCv> sampleCvs) {
+this.sampleCvs = sampleCvs;
+}
+
+@JsonAnyGetter
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+@JsonAnySetter
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
+
+}
+-----------------------------------com.example.SampleCv.java-----------------------------------
+
+package com.example;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"name",
+"email",
+"phone_number",
+"address",
+"profile",
+"core_skills",
+"career_summary",
+"education_qualifications",
+"references"
+})
+public class SampleCv {
+
+@JsonProperty("name")
+private String name;
+@JsonProperty("email")
+private String email;
+@JsonProperty("phone_number")
+private String phoneNumber;
+@JsonProperty("address")
+private Address address;
+@JsonProperty("profile")
+private String profile;
+@JsonProperty("core_skills")
+private List<String> coreSkills = null;
+@JsonProperty("career_summary")
+private List<CareerSummary> careerSummary = null;
+@JsonProperty("education_qualifications")
+private List<String> educationQualifications = null;
+@JsonProperty("references")
+private List<String> references = null;
+@JsonIgnore
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+@JsonProperty("name")
+public String getName() {
+return name;
+}
+
+@JsonProperty("name")
+public void setName(String name) {
+this.name = name;
+}
+
+@JsonProperty("email")
+public String getEmail() {
+return email;
+}
+
+@JsonProperty("email")
+public void setEmail(String email) {
+this.email = email;
+}
+
+@JsonProperty("phone_number")
+public String getPhoneNumber() {
+return phoneNumber;
+}
+
+@JsonProperty("phone_number")
+public void setPhoneNumber(String phoneNumber) {
+this.phoneNumber = phoneNumber;
+}
+
+@JsonProperty("address")
+public Address getAddress() {
+return address;
+}
+
+@JsonProperty("address")
+public void setAddress(Address address) {
+this.address = address;
+}
+
+@JsonProperty("profile")
+public String getProfile() {
+return profile;
+}
+
+@JsonProperty("profile")
+public void setProfile(String profile) {
+this.profile = profile;
+}
+
+@JsonProperty("core_skills")
+public List<String> getCoreSkills() {
+return coreSkills;
+}
+
+@JsonProperty("core_skills")
+public void setCoreSkills(List<String> coreSkills) {
+this.coreSkills = coreSkills;
+}
+
+@JsonProperty("career_summary")
+public List<CareerSummary> getCareerSummary() {
+return careerSummary;
+}
+
+@JsonProperty("career_summary")
+public void setCareerSummary(List<CareerSummary> careerSummary) {
+this.careerSummary = careerSummary;
+}
+
+@JsonProperty("education_qualifications")
+public List<String> getEducationQualifications() {
+return educationQualifications;
+}
+
+@JsonProperty("education_qualifications")
+public void setEducationQualifications(List<String> educationQualifications) {
+this.educationQualifications = educationQualifications;
+}
+
+@JsonProperty("references")
+public List<String> getReferences() {
+return references;
+}
+
+@JsonProperty("references")
+public void setReferences(List<String> references) {
+this.references = references;
+}
+
+@JsonAnyGetter
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+@JsonAnySetter
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
+
+}
